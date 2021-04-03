@@ -128,29 +128,6 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Semester"/>
-
-                <EditText
-                    android:id="@+id/semester"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:hint="Semester..."
-                    android:textSize="12sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
                     android:text="CGPA"/>
 
                 <EditText
@@ -176,6 +153,223 @@
                     android:text="Show"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_margin="40dp">
+
+                <TableRow
+                    android:background="@color/orange">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Semester"
+                        android:textColor="@color/white"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="4"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="GPA"
+                        android:textColor="@color/white"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="4"
+                        android:gravity="center"/>
+
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="GPA"
+                        android:id="@+id/gpa1"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="GPA"
+                        android:id="@+id/gpa2"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="GPA"
+                        android:id="@+id/gpa3"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="GPA"
+                        android:id="@+id/gpa4"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="GPA"
+                        android:id="@+id/gpa5"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="6"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="GPA"
+                        android:id="@+id/gpa6"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="7"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="GPA"
+                        android:id="@+id/gpa7"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="8"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="GPA"
+                        android:id="@+id/gpa8"
+                        android:textColor="@color/black"
+                        android:padding="10sp"
+                        android:textSize="14sp"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"/>
+                </TableRow>
+
+            </TableLayout>
 
         </LinearLayout>
 
