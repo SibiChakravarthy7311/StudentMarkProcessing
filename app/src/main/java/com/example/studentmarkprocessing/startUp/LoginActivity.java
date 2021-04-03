@@ -71,25 +71,25 @@ public class LoginActivity extends AppCompatActivity {
                 }else {
                     binding.edtName.setError("Username Invalid");
                 }
-                if(db.getText().toString().equals("Teacher") && binding.edtName.getText().toString().length()>0){
+                if(db.getText().toString().equals("Staff") && binding.edtName.getText().toString().length()>0){
                     ref=database.getReference("StaffDetails");
                     ref.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.child(binding.edtName.getText().toString()).exists()) {
+                            if (snapshot.child(binding.edtName.getText().toString()).exists()) {
                                 binding.edtName.setError(null);
-                                if (snapshot.child(binding.edtName.getText().toString()).equals(binding.edtName.getText().toString())) {
-                                    if (snapshot.child(binding.edtName.getText().toString()).child("Password").equals(binding.edtPassword.getText().toString())) {
+                                if (snapshot.child(binding.edtName.getText().toString()).child("Id").getValue(String.class).equals(binding.edtName.getText().toString())) {
+                                    if (snapshot.child(binding.edtName.getText().toString()).child("Password").getValue(String.class).equals(binding.edtPassword.getText().toString())) {
                                         binding.edtPassword.setError(null);
                                         Intent intent = new Intent(LoginActivity.this, teacherActivity.class);
                                         intent.putExtra("Id", binding.edtName.getText().toString());
                                         startActivity(intent);
                                         finish();
-                                    }else{
-                                        binding.edtPassword.setError("Invalid Password");
+                                    } else {
+                                        binding.edtPassword.setError("Password Not Match");
                                     }
                                 }
-                            }else{binding.edtName.setError("Invalid Userid");}
+                            }else{binding.edtName.setError("Invalid UserName");}
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {

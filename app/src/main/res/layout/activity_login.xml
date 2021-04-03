@@ -64,7 +64,7 @@
                     android:id="@+id/edtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Username"
+                    android:hint="Enter Username(Id/Rollno)"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"/>
 
