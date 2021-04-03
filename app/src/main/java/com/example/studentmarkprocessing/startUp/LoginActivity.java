@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.studentmarkprocessing.MainActivity;
 import com.example.studentmarkprocessing.R;
@@ -42,13 +43,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int id=binding.selection.getCheckedRadioButtonId();
                 RadioButton db=findViewById(id);
-                if(db.getText()=="Student"){
+                Toast.makeText(LoginActivity.this, db.getText(), Toast.LENGTH_SHORT).show();
+                if(db.getText().equals("Student")){
                     ref=database.getReference("StudentDetails");
                     ref.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.child(binding.edtName.getText().toString()).child("Rollno").equals(binding.edtName.getText().toString())) {
-                                if(snapshot.child(binding.edtName.getText().toString()).child("Password").equals(binding.edtPassword.getText().toString()))
+                            Toast.makeText(LoginActivity.this, snapshot.child(binding.edtName.getText().toString()).child("Rollno").getValue(String.class), Toast.LENGTH_SHORT).show();
+                            if(snapshot.child(binding.edtName.getText().toString()).child("Rollno").getValue(String.class).equals(binding.edtName.getText().toString())) {
+                                if(snapshot.child(binding.edtName.getText().toString()).child("Password").getValue(String.class).equals(binding.edtPassword.getText().toString()))
                                 {
                                     Intent intent = new Intent(LoginActivity.this, studentActivity.class);
                                     intent.putExtra("Id",binding.edtName.getText().toString());
