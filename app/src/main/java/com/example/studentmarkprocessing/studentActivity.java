@@ -38,6 +38,7 @@ public class studentActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(studentActivity.this, profileActivity.class);
+                intent.putExtra("Id",id);
                 startActivity(intent);
             }
         });

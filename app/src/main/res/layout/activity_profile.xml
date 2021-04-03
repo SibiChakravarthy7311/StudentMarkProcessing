@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<layout>
+    <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -130,19 +131,20 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
 
-                <ImageView
-                    android:id="@+id/edit_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_edit_24"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/edit_name"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_baseline_edit_24"/>-->
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/name"
                 android:textSize="16sp"
                 android:textColor="#574A4A"
                 android:text="This is my name"
+                android:editable="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -182,19 +184,20 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
 
-                <ImageView
-                    android:id="@+id/edit_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_edit_24"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/edit_phone"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_baseline_edit_24"/>-->
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_phone"
+                android:id="@+id/phone"
                 android:textSize="16sp"
                 android:textColor="#574A4A"
                 android:text="This is my number"
+                android:editable="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -234,18 +237,19 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
 
-                <ImageView
-                    android:id="@+id/edit_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_edit_24"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/edit_address"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_baseline_edit_24"/>-->
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_desc"
+                android:id="@+id/address"
                 android:textSize="16sp"
                 android:textColor="#574A4A"
+                android:editable="false"
                 android:text="This is Spartaaa!!!"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -253,4 +257,112 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linear_DOB"
+        android:layout_below="@id/linear_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="8dp">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_DOB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DOB"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/edit_address1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_baseline_edit_24"/>-->
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/DOB"
+                android:textSize="16sp"
+                android:textColor="#574A4A"
+                android:editable="false"
+                android:text="I born on !!!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_Email"
+        android:layout_below="@id/linear_DOB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="8dp">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_Email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Email"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/edit_email"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_baseline_edit_24"/>-->
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/email"
+                android:textSize="16sp"
+                android:textColor="#574A4A"
+                android:editable="false"
+                android:text="This is my email !!!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
 </RelativeLayout>
+</layout>

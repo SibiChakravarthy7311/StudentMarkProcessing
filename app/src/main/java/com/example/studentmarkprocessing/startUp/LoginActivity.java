@@ -43,22 +43,53 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int id=binding.selection.getCheckedRadioButtonId();
                 RadioButton db=findViewById(id);
-                Toast.makeText(LoginActivity.this, db.getText(), Toast.LENGTH_SHORT).show();
-                if(db.getText().equals("Student")){
+                if(db.getText().equals("Student") && binding.edtName.getText().toString().length()>0){
                     ref=database.getReference("StudentDetails");
                     ref.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Toast.makeText(LoginActivity.this, snapshot.child(binding.edtName.getText().toString()).child("Rollno").getValue(String.class), Toast.LENGTH_SHORT).show();
-                            if(snapshot.child(binding.edtName.getText().toString()).child("Rollno").getValue(String.class).equals(binding.edtName.getText().toString())) {
-                                if(snapshot.child(binding.edtName.getText().toString()).child("Password").getValue(String.class).equals(binding.edtPassword.getText().toString()))
-                                {
-                                    Intent intent = new Intent(LoginActivity.this, studentActivity.class);
-                                    intent.putExtra("Id",binding.edtName.getText().toString());
-                                    startActivity(intent);
-                                    finish();
-                                }else{binding.edtPassword.setError("Password Not Match");}
-                            }else{binding.edtName.setError("Username Not Found");}
+                            if (snapshot.child(binding.edtName.getText().toString()).exists()) {
+                                binding.edtName.setError(null);
+                                if (snapshot.child(binding.edtName.getText().toString()).child("Rollno").getValue(String.class).equals(binding.edtName.getText().toString())) {
+                                    if (snapshot.child(binding.edtName.getText().toString()).child("Password").getValue(String.class).equals(binding.edtPassword.getText().toString())) {
+                                        binding.edtPassword.setError(null);
+                                        Intent intent = new Intent(LoginActivity.this, studentActivity.class);
+                                        intent.putExtra("Id", binding.edtName.getText().toString());
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        binding.edtPassword.setError("Password Not Match");
+                                    }
+                                }
+                            }else{binding.edtName.setError("Invalid UserName");}
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }else {
+                    binding.edtName.setError("Username Invalid");
+                }
+                if(db.getText().toString().equals("Teacher") && binding.edtName.getText().toString().length()>0){
+                    ref=database.getReference("StaffDetails");
+                    ref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.child(binding.edtName.getText().toString()).exists()) {
+                                binding.edtName.setError(null);
+                                if (snapshot.child(binding.edtName.getText().toString()).equals(binding.edtName.getText().toString())) {
+                                    if (snapshot.child(binding.edtName.getText().toString()).child("Password").equals(binding.edtPassword.getText().toString())) {
+                                        binding.edtPassword.setError(null);
+                                        Intent intent = new Intent(LoginActivity.this, teacherActivity.class);
+                                        intent.putExtra("Id", binding.edtName.getText().toString());
+                                        startActivity(intent);
+                                        finish();
+                                    }else{
+                                        binding.edtPassword.setError("Invalid Password");
+                                    }
+                                }
+                            }else{binding.edtName.setError("Invalid Userid");}
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
@@ -66,25 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
                 }else{
-                    ref=database.getReference("StaffDetails");
-                    ref.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.child(binding.edtName.getText().toString()).equals(binding.edtName.getText().toString())) {
-                                if(snapshot.child(binding.edtName.getText().toString()).child("Password").equals(binding.edtPassword.getText().toString()))
-                                {
-                                    Intent intent = new Intent(LoginActivity.this, teacherActivity.class);
-                                    intent.putExtra("Id",binding.edtName.getText().toString());
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            }
-                        }
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+                    binding.edtName.setError("Username Invalid");
                 }
             }
         });
