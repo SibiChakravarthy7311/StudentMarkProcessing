@@ -29,5 +29,14 @@ public class studentActivity extends AppCompatActivity {
             }
         });
 
+        binding.viewProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(studentActivity.this, profileActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
