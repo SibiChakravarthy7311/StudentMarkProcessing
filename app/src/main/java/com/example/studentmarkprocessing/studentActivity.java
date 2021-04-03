@@ -20,11 +20,15 @@ public class studentActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        Intent intent=getIntent();
+        String id=intent.getStringExtra("Id");
+
         binding.viewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(studentActivity.this, studentMarksActivity.class);
+                intent.putExtra("Id",id);
                 startActivity(intent);
             }
         });

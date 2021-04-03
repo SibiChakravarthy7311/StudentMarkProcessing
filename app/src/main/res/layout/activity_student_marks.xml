@@ -87,6 +87,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:id="@+id/name"
+                    android:editable="false"
                     android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:hint="Your Name"
@@ -110,6 +111,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:id="@+id/roll_no"
+                    android:editable="false"
                     android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:hint="Your Roll Number..."
@@ -128,14 +130,15 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="CGPA"/>
+                    android:text="Department"/>
 
                 <EditText
-                    android:id="@+id/cgpa"
+                    android:id="@+id/dept"
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:layout_height="wrap_content"
-                    android:hint="CGPA"
+                    android:editable="false"
+                    android:hint="Depatrment"
                     android:textSize="12sp"/>
 
             </LinearLayout>
