@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                     ref.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.child(binding.edtName.getText().toString()).equals(binding.edtName.getText().toString())) {
+                            if(snapshot.child(binding.edtName.getText().toString()).child("Rollno").equals(binding.edtName.getText().toString())) {
                                 if(snapshot.child(binding.edtName.getText().toString()).child("Password").equals(binding.edtPassword.getText().toString()))
                                 {
                                     Intent intent = new Intent(LoginActivity.this, studentActivity.class);
