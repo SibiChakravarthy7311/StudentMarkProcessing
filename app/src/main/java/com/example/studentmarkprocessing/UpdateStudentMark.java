@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import com.example.studentmarkprocessing.databinding.ActivityUpdateStudentMarkBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,11 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UpdateStudentMark extends AppCompatActivity {
+
+    private ActivityUpdateStudentMarkBinding binding;
+
     ListView listView;
-    RadioGroup rg;
-    EditText rollno,mark;
-    Button btn_add;
-    RadioButton rb;
     ArrayList<ListviewItem> list = new ArrayList<>();
     private FirebaseDatabase database;
     private DatabaseReference ref;
@@ -37,6 +38,9 @@ public class UpdateStudentMark extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_student_mark);
+        binding=ActivityUpdateStudentMarkBinding.inflate(getLayoutInflater());
+        View view=binding.getRoot();
+        setContentView(view);
 
         String id=getIntent().getStringExtra("Id");
 
@@ -45,12 +49,6 @@ public class UpdateStudentMark extends AppCompatActivity {
         listView=(ListView) findViewById(R.id.listview);
 
 //        List View Code
-//        ListviewItem item = new ListviewItem("18bcs009","amal","1","2","3","4");
-//        list.add(item);
-//        ListviewItem item1 = new ListviewItem("18bcs013","dhinesh","1","2","3","4");
-//        list.add(item1);
-//        ListviewItem item2 = new ListviewItem("18bcs001","sibi","1","2","3","4");
-//        list.add(item2);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -76,19 +74,52 @@ public class UpdateStudentMark extends AppCompatActivity {
 
 
 //        adding new values
-        rg = (RadioGroup) findViewById(R.id.exam_type);
-        rollno = (EditText) findViewById(R.id.roll_no);
-        mark = (EditText) findViewById(R.id.mark);
-        btn_add = (Button) findViewById(R.id.btn_add);
 
-        int ids = rg.getCheckedRadioButtonId();
-        rb = (RadioButton) findViewById(ids);
-        //String type = rb.getText().toString();
-        btn_add.setOnClickListener(new View.OnClickListener() {
+
+        binding.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-//                Add values to databse
+            public void onClick(View v) {
+                ref=ref.child("CSEA").child(binding.rollNo.getText().toString());
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            action();
+                        }else{
+                            binding.rollNo.setError("Rollno not found!!");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            private void action() {
+                try{
+                    int ids=binding.examType.getCheckedRadioButtonId();
+                    RadioButton rb=findViewById(ids);
+                    String select=rb.getText().toString();
+                    String Mark=binding.mark.getText().toString();
+
+                    if(binding.rollNo.getText().toString().length()>1){
+                        if(Integer.parseInt(Mark)>0 && Integer.parseInt(Mark)<51){
+                            if(select.equals("CCET 1")){ref.child("C1").setValue(binding.mark.getText().toString());}
+                            else if(select.equals("CCET 2")){ref.child("C2").setValue(binding.mark.getText().toString());}
+                            else{ref.child("C3").setValue(binding.mark.getText().toString());}
+                            Toast.makeText(UpdateStudentMark.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                        }else{
+                            binding.mark.setError("Mark not in range");
+                        }
+                    }else{binding.rollNo.setError("Enter the rollno");}
+                }catch (Exception e){
+                    Toast.makeText(UpdateStudentMark.this, "Please select the exam type", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
+
+
 }

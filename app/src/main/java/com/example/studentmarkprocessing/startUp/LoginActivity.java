@@ -49,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.child(binding.edtName.getText().toString()).exists()) {
-                                binding.edtName.setError(null);
                                 if (snapshot.child(binding.edtName.getText().toString()).child("Rollno").getValue(String.class).equals(binding.edtName.getText().toString())) {
                                     if (snapshot.child(binding.edtName.getText().toString()).child("Password").getValue(String.class).equals(binding.edtPassword.getText().toString())) {
                                         binding.edtPassword.setError(null);
