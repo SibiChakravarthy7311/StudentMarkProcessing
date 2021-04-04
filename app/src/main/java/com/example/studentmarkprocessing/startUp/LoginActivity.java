@@ -67,10 +67,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         }
                     });
-                }else {
-                    binding.edtName.setError("Username Invalid");
                 }
-                if(db.getText().toString().equals("Staff") && binding.edtName.getText().toString().length()>0){
+                else if(db.getText().toString().equals("Staff") && binding.edtName.getText().toString().length()>0){
                     ref=database.getReference("StaffDetails");
                     ref.addValueEventListener(new ValueEventListener() {
                         @Override
